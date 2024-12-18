@@ -84,7 +84,7 @@ export const verifySecret = async ({
       path: "/",
       httpOnly: true,
       sameSite: "strict",
-      secure: true,
+      secure: process.env.NEXT_PUBLIC_NODE_ENV === "production",
     });
 
     return parseStringify({ sessionId: session.$id });
